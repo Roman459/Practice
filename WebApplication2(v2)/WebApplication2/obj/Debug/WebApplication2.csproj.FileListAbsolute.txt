@@ -1,0 +1,10 @@
+D:\Dynamics Technologies\Задании\3\WebApplication2\WebApplication2\bin\WebApplication2.dll
+D:\Dynamics Technologies\Задании\3\WebApplication2\WebApplication2\bin\WebApplication2.pdb
+D:\Dynamics Technologies\Задании\3\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+D:\Dynamics Technologies\Задании\3\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+D:\Dynamics Technologies\Задании\3\WebApplication2\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\Dynamics Technologies\Задании\3\WebApplication2(v2)\WebApplication2\bin\WebApplication2.dll
+D:\Dynamics Technologies\Задании\3\WebApplication2(v2)\WebApplication2\bin\WebApplication2.pdb
+D:\Dynamics Technologies\Задании\3\WebApplication2(v2)\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+D:\Dynamics Technologies\Задании\3\WebApplication2(v2)\WebApplication2\obj\Debug\WebApplication2.dll
+D:\Dynamics Technologies\Задании\3\WebApplication2(v2)\WebApplication2\obj\Debug\WebApplication2.pdb
