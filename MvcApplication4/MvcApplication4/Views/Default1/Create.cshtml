@@ -1,0 +1,64 @@
+﻿@model MvcApplication4.Models.Users
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Добавление нового пользователя</h2>
+
+@using (Html.BeginForm("Create", "Default1", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    @Html.ValidationSummary(true)
+
+    <fieldset style="font-size: 17px;">
+        <legend>Пользователь</legend>
+
+        <div class="editor-label">
+            ФИО
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.fio_user)
+            @Html.ValidationMessageFor(model => model.fio_user)
+        </div>
+
+        <div class="editor-label">
+            Логин
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.login_user)
+            @Html.ValidationMessageFor(model => model.login_user)
+        </div>
+
+        <div class="editor-label">
+            Возраст
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.age_user)
+            @Html.ValidationMessageFor(model => model.age_user)
+        </div>
+
+        <div class="editor-label">
+           Телефон
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone_user)
+            @Html.ValidationMessageFor(model => model.phone_user)
+        </div>
+
+        <div class="editor-label">
+           Фотография
+        </div>
+       
+
+                <input id="file" name ="File" type="file" />
+
+        <p>
+            <input type="submit" value="Создать" />
+        </p>
+    </fieldset>
+}
+
+<div style="font-size: 17px;">
+    @Html.ActionLink("Вернуться назад", "Index")
+</div>
+
+

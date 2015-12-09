@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MvcApplication4.Models.Users>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>База данных пользователей</h2>
+
+
+<table border="1" style="border-spacing: inherit; font-size: 17px;" >
+    <tr>
+        <th>
+            Действия
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.fio_user)*@
+            ФИО
+        </th>
+        <th>
+           Логин
+        </th>
+        <th>
+           Возраст
+        </th>
+       
+        
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.ID_user }) |
+            @Html.ActionLink("Детали", "Details", new { id=item.ID_user }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.ID_user })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fio_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.login_user)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.age_user)
+        </td>
+
+    </tr>
+}
+
+</table >
+<p style="font-size: 17px">
+    @Html.ActionLink("Добавить пользователя", "Create")
+</p>
