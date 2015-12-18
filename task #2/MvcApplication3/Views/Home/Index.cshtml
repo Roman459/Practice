@@ -1,0 +1,269 @@
+﻿@model MvcApplication3.Models.User
+
+<p style="font-size: 19px; position: static; ">
+    @Html.ActionLink("Добавить пользователя", "Create")
+</p>
+
+<div id="tableBlock" style="font-size: 18px; float:left; position: absolute;"></div>
+
+<div id="editBlock" style= "  margin-right: 200px; float:right;  display:none;" ><p><b style="font-size: 20px;">Редактирование пользователя</b></p>
+    <table>
+    <tr><td><input type="hidden" id="editId" /></td><td></td></tr>
+    <tr><td><label>ФИО: </label></td><td><input type="text" id="editFio" /></td></tr>
+    <tr><td><label>Логин: </label></td><td><input type="text" id="editLogin" /></td></tr>
+    <tr><td><label>Возраст: </label></td><td><input type="number" id="editAge" /></td></tr>
+    <tr><td><label>Телефон: </label></td><td><input type="text" id="editPhone" /></td></tr>
+    <tr><td><label>Фото: </label></td><td><input type="text" id="editFoto" /></td></tr>
+        </table>
+    <button id="editUser">Сохранить</button>
+    <button id="canceledit">Отмена</button>
+</div>
+
+
+<div id="ditailsBlock" style= "  margin-right: 200px; float:right;  display:none;"><p><b style="font-size: 20px;">Данные пользователя</b></p>
+    <table>
+        
+    <tr><td><input type="hidden" id="ditailsId" /></td><td></td></tr>
+    <tr><td><label >ФИО: </label></td><td><input type="text" id="ditailsFio"  /></td></tr>
+    <tr><td><label>Логин: </label></td><td><input type="text" id="ditailsLogin" /></td></tr>
+    <tr><td><label>Возраст: </label></td><td><input type="number" id="ditailsAge" /></td></tr>
+    <tr><td><label>Телефон: </label></td><td><input type="text" id="ditailsPhone" /></td></tr>
+       <tr><td><label>Фото: </label></td><td><img  id="ditailsFoto" src=""   width="200" height="200"/></td></tr>
+        </table>
+    <button id="ditailsUser">Скрыть детали</button> 
+</div>
+
+<div id="showdeleteBlock" style= "  margin-right: 10px; float:right;  display:none;"><p><b style="font-size: 20px;">Вы действительно хотите удалить данного пользователя?</b></p>
+    <table>
+        
+    <tr><td><input type="hidden" id="deleteId" /></td><td></td></tr>
+    <tr><td><label >ФИО: </label></td><td><input type="text" id="deleteFio"  /></td></tr>
+    <tr><td><label>Логин: </label></td><td><input type="text" id="deleteLogin" /></td></tr>
+    <tr><td><label>Возраст: </label></td><td><input type="number" id="deleteAge" /></td></tr>
+    <tr><td><label>Телефон: </label></td><td><input type="text" id="deletePhone" /></td></tr>
+       <tr><td><label>Фото: </label></td><td><img  id="deleteFoto" src=""   width="200" height="200"/></td></tr>
+        </table>
+    <button id="deleteUser">Удалить пользователя</button> 
+    <button id="canceldelete">Отмена</button>
+</div>
+
+@section scripts
+{
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        GetAllUsers();
+
+        $("#editUser").click(function (event) {
+            event.preventDefault();
+            EditUser();
+        });
+
+        $("#ditailsUser").click(function (event) {
+             event.preventDefault();
+            $("#ditailsBlock").css('display', 'none');
+        });
+
+        $("#deleteUser").click(function (event) {
+            event.preventDefault();
+            DeleteUser();
+        });
+
+        $("#canceledit").click(function (event) {
+            event.preventDefault();
+            $("#editBlock").css('display', 'none');
+        });
+
+        $("#canceldelete").click(function (event) {
+             event.preventDefault();
+            $("#showdeleteBlock").css('display', 'none');
+        });
+    });
+    // Получение всех пользователей по ajax-запросу
+    function GetAllUsers() {
+
+        $("#ditailsBlock").css('display', 'none');
+        $("#editBlock").css('display', 'none');
+        $("#showdeleteBlock").css('display', 'none');
+        $.ajax({
+            url: '/api/users',
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                WriteResponse(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+    // Удаление пользователя
+    function DeleteUser(id) {
+        var id = $('#deleteId').val()
+        $.ajax({
+            url: '/api/users/' + id,
+            type: 'DELETE',
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                GetAllUsers();
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        }); 
+    }
+    // редактирование пользователя
+    function EditUser() {
+        var id = $('#editId').val()
+        // получаем новые значения для редактируемого пользователя
+        var user = {
+            Id: $('#editId').val(),
+            Fio: $('#editFio').val(),
+            Login: $('#editLogin').val(),
+            Age: $('#editAge').val(),
+            Phone: $('#editPhone').val(),
+            Foto: $('#editFoto').val()
+        };
+        $.ajax({
+            url: '/api/users/' + id,
+            type: 'PUT',
+            data: JSON.stringify(user),
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                GetAllUsers();
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+ 
+    // вывод полученных данных на экран
+    function WriteResponse(users) {
+        var strResult = "<table><th>ФИО</th><th>Логин</th><th>Возраст</th><th>Телефон</th>";
+        $.each(users, function (index, user) {
+            strResult += "<tr><td> " + user.Fio + "</td><td>" +
+            user.Login + "</td><td>" + user.Age + "</td><td>" + user.Phone +
+            "</td><td><a id='editItem' data-item='" + user.Id + "' onclick='EditItem(this);' >Редактировать</a></td>" +
+            "<td><a id='ditailsItem' data-item='" + user.Id + "' onclick='DitailsItem(this);' >Детали</a></td>"+
+            "<td><a id='deleteItem' data-item='" + user.Id + "' onclick='DeleteItem(this);' >Удалить</a></td></tr>";
+        });
+        strResult += "</table>";
+        $("#tableBlock").html(strResult);
+
+    }
+    // обработчик удаления
+    function DeleteItem(el) {
+        // получаем id удаляемого объекта
+        var id = $(el).attr('data-item');
+        GetUserDelete(id);
+    }
+    // обработчик редактирования
+    function EditItem(el) {
+        // получаем id редактируемого объекта
+        var id = $(el).attr('data-item');
+        GetUserEdit(id);
+    }
+    //обраотчик деталей
+    function DitailsItem(el) {
+        // получаем id редактируемого объекта
+        var id = $(el).attr('data-item');
+        GetUserDitails(id);
+    }
+
+    // вывод данных пользователя в поля для редактирования, отображения деталей и удаления
+    function GetUserEdit(id) {
+        $.ajax({
+            url: '/api/users/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                ShowUserEdit(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function GetUserDitails(id) {
+        $.ajax({
+            url: '/api/users/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                ShowUserDitails(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function GetUserDelete(id) {
+        $.ajax({
+            url: '/api/users/' + id,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                ShowUserDelete(data);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    }
+
+    function ShowUserEdit(user) {
+        if (user != null) {
+            $("#ditailsBlock").css('display', 'none');
+            $("#showdeleteBlock").css('display', 'none');
+            $("#editBlock").css('display', 'block');
+            $("#editId").val(user.Id);
+            $("#editFio").val(user.Fio);
+            $("#editLogin").val(user.Login);
+            $("#editAge").val(user.Age);
+            $("#editPhone").val(user.Phone);
+            $("#editFoto").val(user.Foto);
+        }
+        else {
+            alert("Такого пользователь не существует");
+        }
+    }
+
+    function ShowUserDitails(user) {
+        if (user != null) {
+            $("#editBlock").css('display', 'none');
+            $("#showdeleteBlock").css('display', 'none');
+            $("#ditailsBlock").css('display', 'block');
+            $("#ditailsId").val(user.Id);
+            $("#ditailsFio").val(user.Fio);
+            $("#ditailsLogin").val(user.Login);
+            $("#ditailsAge").val(user.Age);
+            $("#ditailsPhone").val(user.Phone);
+            $("#ditailsFoto").val(user.Foto);
+        }
+        else {
+            alert("Такого пользователь не существует");
+        }
+    }
+
+    function ShowUserDelete(user) {
+        if (user != null) {
+            $("#editBlock").css('display', 'none');
+            $("#ditailsBlock").css('display', 'none');
+            $("#showdeleteBlock").css('display', 'block');
+            $("#deleteId").val(user.Id);
+            $("#deleteFio").val(user.Fio);
+            $("#deleteLogin").val(user.Login);
+            $("#deleteAge").val(user.Age);
+            $("#deletePhone").val(user.Phone);
+            $("#deleteFoto").val(user.Foto);
+        }
+        else {
+            alert("Такого пользователь не существует");
+        }
+    }
+
+</script>
+}
