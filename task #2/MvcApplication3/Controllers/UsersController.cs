@@ -31,19 +31,20 @@ namespace MvcApplication3.Controllers
         [HttpPost]
         public void CreateUser([FromBody]User user)
         {
-          user.Foto = "~/ImagesUsers/" + user.Foto;
                 db.Users.Add(user);
-                db.SaveChanges();     
-            }
- 
+                db.SaveChanges();
+        }
+        
         [HttpPut]
         public void EditUser(int id, [FromBody]User user)
         {
             if (id == user.Id)
             {
-                db.Entry(user).State = EntityState.Modified;
-
-                db.SaveChanges();
+                if (user.Foto != null)
+                {
+                    db.Entry(user).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
             }
         }
 
@@ -56,6 +57,7 @@ namespace MvcApplication3.Controllers
                 db.SaveChanges();
             }
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -63,6 +65,6 @@ namespace MvcApplication3.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }  
     }
 }

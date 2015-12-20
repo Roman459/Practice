@@ -1,8 +1,8 @@
-﻿@*@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+﻿@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
     @Html.ValidationSummary(true)
 
     <fieldset style="font-size: 17px;">
-        <legend>Пользователь</legend>*@
+     <legend></legend>
 
 <div id="createBlock">
     <p><b>Добавление пользователя</b></p>
@@ -11,46 +11,39 @@
     <tr><td><label>Логин: </label></td><td><input type="text" id="addLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="addAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="addPhone" /></td></tr>
-    <tr><td><label>Фото: </label></td><td><input type="file" id="addFoto" name ="file"/></td></tr>
-
-        
+    <tr><td><label>Фото: </label></td><td><input type="file" id="addFoto" name ="file"/></td></tr>       
      </table>
    
-   
-    <button  id="addUser">Сохранить</button>
-     <p>
-          @*<input type="submit" id="addImage" style= "display:none;"  value="Добавить изобаржение"  />   *@
-         @*<button type="submit" id="addImage" style= "display:none;"  >Сохранить</button>*@
-        </p>
+    <button  id="addUser" style= "display:block;"  >Сохранить</button>
+
     <div>
 @Html.ActionLink("Вернуться назад", "Index")
     </div>
 </div>
-@*</fieldset>
-}*@
+</fieldset>
+}
 
+<script src="~/Scripts/react.js"></script>
 
 @section scripts
 {
 <script type="text/javascript">
 
-    $(document).ready(function () {  
-        $("#addUser").click(function (event) {
-           event.preventDefault();
-            AddUser();   
+    $(document).ready(function () {
+        $("#addUser").click(function (event) {         
+            AddUser();
         });
     });
 
-
     // Добавление нового пользователя
     function AddUser() {
-        // получаем значения для добавляемого пользователя
+        // получаем значения для добавляемого пользователя 
         var user = {
             Fio: $('#addFio').val(),
             Login: $('#addLogin').val(),
             Age: $('#addAge').val(),
             Phone: $('#addPhone').val(),
-            Foto: $('#addFoto').val().replace(/^.*\\/, "")  
+            Foto: $('#addFoto').val().replace(/^.*\\/, "")
         };
 
         $.ajax({
@@ -59,12 +52,9 @@
             data: JSON.stringify(user),
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                window.location.replace("http://localhost:53120/");
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
+                alert('Пользователь добавлен, вернитесь назад');
             }
-        });
+        });    
     }  
 </script>
 }

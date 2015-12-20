@@ -6,6 +6,9 @@
 
 <div id="tableBlock" style="font-size: 18px; float:left; position: absolute;"></div>
 
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+    @Html.ValidationSummary(true)
+           
 <div id="editBlock" style= "  margin-right: 200px; float:right;  display:none;" ><p><b style="font-size: 20px;">Редактирование пользователя</b></p>
     <table>
     <tr><td><input type="hidden" id="editId" /></td><td></td></tr>
@@ -13,25 +16,25 @@
     <tr><td><label>Логин: </label></td><td><input type="text" id="editLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="editAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="editPhone" /></td></tr>
-    <tr><td><label>Фото: </label></td><td><input type="text" id="editFoto" /></td></tr>
+    <tr><td><label>Фото: </label></td><td><input type="file" id="editFoto" name ="file"/></td></tr>
         </table>
     <button id="editUser">Сохранить</button>
     <button id="canceledit">Отмена</button>
 </div>
-
+}  
 
 <div id="ditailsBlock" style= "  margin-right: 200px; float:right;  display:none;"><p><b style="font-size: 20px;">Данные пользователя</b></p>
-    <table>
-        
+    <table>        
     <tr><td><input type="hidden" id="ditailsId" /></td><td></td></tr>
     <tr><td><label >ФИО: </label></td><td><input type="text" id="ditailsFio"  /></td></tr>
     <tr><td><label>Логин: </label></td><td><input type="text" id="ditailsLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="ditailsAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="ditailsPhone" /></td></tr>
-       <tr><td><label>Фото: </label></td><td><img  id="ditailsFoto" src=""   width="200" height="200"/></td></tr>
+    <tr><td><label>Фото: </label></td><td><img id="ditailsFoto" src="''" width="200" height="200"/></td></tr>
         </table>
     <button id="ditailsUser">Скрыть детали</button> 
 </div>
+    
 
 <div id="showdeleteBlock" style= "  margin-right: 10px; float:right;  display:none;"><p><b style="font-size: 20px;">Вы действительно хотите удалить данного пользователя?</b></p>
     <table>
@@ -41,11 +44,12 @@
     <tr><td><label>Логин: </label></td><td><input type="text" id="deleteLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="deleteAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="deletePhone" /></td></tr>
-       <tr><td><label>Фото: </label></td><td><img  id="deleteFoto" src=""   width="200" height="200"/></td></tr>
+    <tr><td><label>Фото: </label></td><td><img  id="deleteFoto" src="''" width="200" height="200"/></td></tr>
         </table>
     <button id="deleteUser">Удалить пользователя</button> 
     <button id="canceldelete">Отмена</button>
 </div>
+    
 
 @section scripts
 {
@@ -55,7 +59,6 @@
         GetAllUsers();
 
         $("#editUser").click(function (event) {
-            event.preventDefault();
             EditUser();
         });
 
@@ -79,6 +82,7 @@
             $("#showdeleteBlock").css('display', 'none');
         });
     });
+
     // Получение всех пользователей по ajax-запросу
     function GetAllUsers() {
 
@@ -97,6 +101,7 @@
             }
         });
     }
+
     // Удаление пользователя
     function DeleteUser(id) {
         var id = $('#deleteId').val()
@@ -112,6 +117,7 @@
             }
         }); 
     }
+
     // редактирование пользователя
     function EditUser() {
         var id = $('#editId').val()
@@ -122,7 +128,7 @@
             Login: $('#editLogin').val(),
             Age: $('#editAge').val(),
             Phone: $('#editPhone').val(),
-            Foto: $('#editFoto').val()
+            Foto: $('#editFoto').val().replace(/^.*\\/, "")
         };
         $.ajax({
             url: '/api/users/' + id,
@@ -131,16 +137,13 @@
             contentType: "application/json;charset=utf-8",
             success: function (data) {
                 GetAllUsers();
-            },
-            error: function (x, y, z) {
-                alert(x + '\n' + y + '\n' + z);
-            }
+                alert('Данные о пользователе изменены');
+            }    
         });
     }
- 
-    // вывод полученных данных на экран
+
     function WriteResponse(users) {
-        var strResult = "<table><th>ФИО</th><th>Логин</th><th>Возраст</th><th>Телефон</th>";
+        var strResult = "<table border="+'1'+" ><th>ФИО</th><th>Логин</th><th>Возраст</th><th>Телефон</th>";
         $.each(users, function (index, user) {
             strResult += "<tr><td> " + user.Fio + "</td><td>" +
             user.Login + "</td><td>" + user.Age + "</td><td>" + user.Phone +
@@ -241,7 +244,7 @@
             $("#ditailsLogin").val(user.Login);
             $("#ditailsAge").val(user.Age);
             $("#ditailsPhone").val(user.Phone);
-            $("#ditailsFoto").val(user.Foto);
+            $("#ditailsFoto").attr("src", "/ImagesUsers/"+user.Foto); 
         }
         else {
             alert("Такого пользователь не существует");
@@ -258,12 +261,11 @@
             $("#deleteLogin").val(user.Login);
             $("#deleteAge").val(user.Age);
             $("#deletePhone").val(user.Phone);
-            $("#deleteFoto").val(user.Foto);
+            $("#deleteFoto").attr("src", "/ImagesUsers/" + user.Foto);
         }
         else {
             alert("Такого пользователь не существует");
         }
     }
-
 </script>
 }
