@@ -25,26 +25,34 @@ namespace MvcApplication3.Controllers
         public User GetUser(int id)
         {
             User user = db.Users.Find(id);
+            
             return user;
         }
 
         [HttpPost]
         public void CreateUser([FromBody]User user)
         {
+              try
+            {
+                if (ModelState.IsValid)
+                {   
                 db.Users.Add(user);
                 db.SaveChanges();
+                }
+            }
+              catch (Exception ex)
+              {
+                  ModelState.AddModelError(String.Empty, ex);
+              }
         }
         
         [HttpPut]
         public void EditUser(int id, [FromBody]User user)
         {
             if (id == user.Id)
-            {
-                if (user.Foto != null)
-                {
-                    db.Entry(user).State = EntityState.Modified;
-                    db.SaveChanges();
-                }
+            {   
+              db.Entry(user).State = EntityState.Modified;
+              db.SaveChanges();       
             }
         }
 

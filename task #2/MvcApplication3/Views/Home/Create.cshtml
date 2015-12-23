@@ -7,7 +7,7 @@
 <div id="createBlock">
     <p><b>Добавление пользователя</b></p>
     <table>
-     <tr><td><label>ФИО: </label></td><td><input type="text" id="addFio" /></td></tr>
+     <tr><td><label>ФИО: </label></td><td><input type="text" id="addFio" name ="fio"/></td></tr>
     <tr><td><label>Логин: </label></td><td><input type="text" id="addLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="addAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="addPhone" /></td></tr>
@@ -52,8 +52,8 @@
             data: JSON.stringify(user),
             contentType: "application/json;charset=utf-8",
             success: function (data) {
-                alert('Пользователь добавлен, вернитесь назад');
-            }
+             alert('Пользователь добавлен, вернитесь назад');
+            }, 
         });    
     }  
 </script>

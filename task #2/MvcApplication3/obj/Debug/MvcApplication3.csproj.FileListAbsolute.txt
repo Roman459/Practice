@@ -306,47 +306,47 @@ D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.1) release
 D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.1) release\MvcApplication3\obj\Debug\MvcApplication3.csprojResolveAssemblyReference.cache
 D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.1) release\MvcApplication3\obj\Debug\MvcApplication3.dll
 D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.1) release\MvcApplication3\obj\Debug\MvcApplication3.pdb
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\MvcApplication3.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\MvcApplication3.pdb
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\Antlr3.Runtime.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\EntityFramework.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\Microsoft.Web.Infrastructure.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\Newtonsoft.Json.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Net.Http.Formatting.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Helpers.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Http.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Http.WebHost.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Mvc.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Optimization.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Providers.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Razor.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.Deployment.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.Razor.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\WebGrease.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\EntityFramework.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\Newtonsoft.Json.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Net.Http.Formatting.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Helpers.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Http.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Http.WebHost.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Mvc.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.Razor.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.Deployment.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\System.Web.WebPages.Razor.xml
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\EntityFramework.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Net.Http.Formatting.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Helpers.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Http.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Http.WebHost.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Mvc.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Optimization.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Providers.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.Razor.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.WebPages.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.WebPages.Deployment.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\bin\ru\System.Web.WebPages.Razor.resources.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\obj\Debug\MvcApplication3.csprojResolveAssemblyReference.cache
-D:\GitHub repositories\Practice\task #2\MvcApplication3\obj\Debug\MvcApplication3.dll
-D:\GitHub repositories\Practice\task #2\MvcApplication3\obj\Debug\MvcApplication3.pdb
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\MvcApplication3.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\MvcApplication3.pdb
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\Antlr3.Runtime.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\EntityFramework.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\Microsoft.Web.Infrastructure.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\Newtonsoft.Json.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Net.Http.Formatting.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Helpers.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Http.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Http.WebHost.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Mvc.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Optimization.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Providers.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Razor.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.Deployment.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.Razor.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\WebGrease.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\EntityFramework.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\Newtonsoft.Json.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Net.Http.Formatting.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Helpers.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Http.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Http.WebHost.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Mvc.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.Razor.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.Deployment.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\System.Web.WebPages.Razor.xml
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\EntityFramework.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Net.Http.Formatting.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Helpers.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Http.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Http.WebHost.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Mvc.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Optimization.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Providers.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.Razor.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.WebPages.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\obj\Debug\MvcApplication3.csprojResolveAssemblyReference.cache
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\obj\Debug\MvcApplication3.dll
+D:\Dynamics Technologies\Задании\4 web api\MvcApplication3 (v2.2) release\MvcApplication3\obj\Debug\MvcApplication3.pdb

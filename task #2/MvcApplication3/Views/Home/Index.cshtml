@@ -16,6 +16,7 @@
     <tr><td><label>Логин: </label></td><td><input type="text" id="editLogin" /></td></tr>
     <tr><td><label>Возраст: </label></td><td><input type="number" id="editAge" /></td></tr>
     <tr><td><label>Телефон: </label></td><td><input type="text" id="editPhone" /></td></tr>
+    <tr style= "display:none;"><td><label>Путь фото: </label></td><td><input type="text" id="editFotoPath" /></td></tr>
     <tr><td><label>Фото: </label></td><td><input type="file" id="editFoto" name ="file"/></td></tr>
         </table>
     <button id="editUser">Сохранить</button>
@@ -55,6 +56,11 @@
 {
 <script type="text/javascript">
     $(document).ready(function () {
+
+        $("#editFoto").change(function () {
+            var ss = $('#editFoto').val().replace(/^.*\\/, "")
+            $('#editFotoPath').val(ss)
+        });
 
         GetAllUsers();
 
@@ -122,14 +128,14 @@
     function EditUser() {
         var id = $('#editId').val()
         // получаем новые значения для редактируемого пользователя
-        var user = {
-            Id: $('#editId').val(),
-            Fio: $('#editFio').val(),
-            Login: $('#editLogin').val(),
-            Age: $('#editAge').val(),
-            Phone: $('#editPhone').val(),
-            Foto: $('#editFoto').val().replace(/^.*\\/, "")
-        };
+            var user = {
+                Id: $('#editId').val(),
+                Fio: $('#editFio').val(),
+                Login: $('#editLogin').val(),
+                Age: $('#editAge').val(),
+                Phone: $('#editPhone').val(),
+                Foto: $('#editFotoPath').val()
+            };
         $.ajax({
             url: '/api/users/' + id,
             type: 'PUT',
@@ -218,6 +224,7 @@
     }
 
     function ShowUserEdit(user) {
+       // var img = document.getElementById('#ditailsFoto').value;
         if (user != null) {
             $("#ditailsBlock").css('display', 'none');
             $("#showdeleteBlock").css('display', 'none');
@@ -227,7 +234,7 @@
             $("#editLogin").val(user.Login);
             $("#editAge").val(user.Age);
             $("#editPhone").val(user.Phone);
-            $("#editFoto").val(user.Foto);
+            $("#editFotoPath").val(user.Foto);
         }
         else {
             alert("Такого пользователь не существует");

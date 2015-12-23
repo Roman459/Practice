@@ -19,22 +19,12 @@ namespace MvcApplication3.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    if (file != null)
-                    {
+               if (file != null)
+               {
                         var fileName = Path.GetFileName(file.FileName);
                         var path = Path.Combine(Server.MapPath("~/ImagesUsers"), fileName);
                         file.SaveAs(path);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError(String.Empty, ex);
-            }
+                  }
             return View();
         }
 
