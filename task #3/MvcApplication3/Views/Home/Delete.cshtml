@@ -1,0 +1,80 @@
+﻿
+<head>
+  <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <title>Удаление пользователя</title>
+</head>
+
+<body ng-app="DeleteUser">
+
+    <h1>Вы действительно хотите удалить данного пользователя? </h1>
+      
+    <div ng-controller="DeleteUserController">
+    
+     <table>
+        
+    <tr><td><label>ID: </label></td><td><input type="text" id="Id" readonly="readonly" ></td></tr>
+    <tr><td><label>ФИО: </label></td><td><input type="text" id="Fio" ></td></tr>
+    <tr><td><label>Логин: </label></td><td><input type="text" id="Login" > </td></tr>
+    <tr><td><label>Возраст: </label></td><td><input type="number" id="Age" ></td></tr>
+    <tr><td><label>Телефон: </label></td><td><input type="text" id="Phone" ></td></tr>
+    <tr><td><label>Фото: </label></td><td><img ng-src="{{Foto}}"  width="200" height="200"></td></tr>    
+             
+     </table>
+
+        <button   ng-click="DeleteUser()">Удалить</button> 
+        
+        </div>
+
+</body>
+
+<p>
+@Html.ActionLink("Вернуться назад", "Admin")
+    </p>
+
+<script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+
+<script>
+    var app = angular.module("DeleteUser", []);
+    app.controller("DeleteUserController", function ($scope, $http, $sce, $location) {
+
+        var urlx = $location.absUrl();
+        var idu = urlx.replace('http://localhost:53120/Home/Delete/', '');
+
+        $http.get('http://localhost:53120/api/users/' + idu).
+             success(function (data, status, headers, config) {
+
+                 var res = data;
+
+                 Id.value = res.Id;
+                 Fio.value = res.Fio;
+                 Login.value = res.Login;
+                 Age.value = res.Age;
+                 Phone.value = res.Phone;
+                 $scope.Foto = $sce.trustAsResourceUrl('/ImagesUsers/' + res.Foto);
+
+             }).
+             error(function (data, status, headers, config) {
+
+                 alert("erro");
+
+             });
+
+        $scope.DeleteUser = function (id) {
+            var id = Id.value;
+            $http.delete('http://localhost:53120/api/users/' + id).
+              success(function (data, status, headers, config) {
+
+                  window.location.replace("http://localhost:53120/Home/Admin");
+
+              }).
+              error(function (data, status, headers, config) {
+
+                  alert("erro");
+
+              });
+        };
+
+    });
+   
+</script>
+

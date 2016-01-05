@@ -1,0 +1,99 @@
+﻿<head>
+   <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <title>Детали пользователя</title>
+</head>
+<body ng-app="DetailsUser">
+    <h1>Детали пользователя </h1>
+      
+    <div ng-controller="DetailsUserController">
+
+           <table>
+                    <tr>
+                        <td>
+                            <span>ID</span>
+                        </td>
+                        <td>
+                            <input type="text" readonly="readonly" ng-model="Id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>ФИО</span>
+                        </td>
+                        <td>
+                            <input type="text"  ng-model="Fio" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Логин</span>
+                        </td>
+                        <td>
+                            <input type="text"  ng-model="Login" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Возраст</span>
+                        </td>
+                        <td>
+                            <input type="text" ng-model="Age" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Телефон</span>
+                        </td>
+                        <td>
+                            <input type="text"  ng-model="Phone" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Фото</span>
+                        </td>
+                        <td>
+                            <img ng-src="{{Foto}}"  width="200" height="200">
+                        </td>
+                    </tr>
+
+                </table>
+        </div>
+
+</body>
+
+<div>
+@Html.ActionLink("Вернуться назад", "Admin")
+    </div>
+
+<script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+
+
+<script>
+    var app = angular.module("DetailsUser", []);
+    app.controller("DetailsUserController", function ($scope, $http, $sce, $location) {
+
+        var urlx = $location.absUrl();
+        var idu = urlx.replace('http://localhost:53120/Home/Details/', '');
+
+        $http.get('http://localhost:53120/api/users/' + idu).
+             success(function (data, status, headers, config) {
+
+                 var res = data;
+
+                 $scope.Id = res.Id;
+                 $scope.Fio = res.Fio;
+                 $scope.Login = res.Login;
+                 $scope.Age = res.Age;
+                 $scope.Phone = res.Phone;
+                 $scope.Foto = $sce.trustAsResourceUrl('/ImagesUsers/' + res.Foto);
+
+             }).
+             error(function (data, status, headers, config) {
+                 alert("erro");
+
+             });
+
+    });
+   
+</script>

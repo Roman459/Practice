@@ -1,0 +1,64 @@
+﻿  @using (Html.BeginForm("Create", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    { 
+      
+<!doctype html>
+<html>
+<head>
+     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <title>Добавление пользователя</title>
+</head>
+      
+<body ng-app="CreateUser">
+ 
+    <h2>Добавление пользователя</h2>
+
+  <div ng-controller="CreateUserController">
+
+     <table>
+
+    <tr><td><label>ФИО: </label></td><td><input type="text" id="Fio" required></td></tr>
+    <tr><td><label>Логин: </label></td><td><input type="text" id="Login" required> </td></tr>
+    <tr><td><label>Возраст: </label></td><td><input type="number" id="Age" required></td></tr>
+    <tr><td><label>Телефон: </label></td><td><input type="text" id="Phone" required></td></tr>
+    <tr><td><label>Фото: </label></td><td><input type="file" id="Foto" name ="file" required></td></tr>
+                  
+     </table>
+    
+         <div> <input type="submit"  value="Cоздать" ng-click="AddUser()" /></div> 
+    
+      </div>
+
+</body>
+
+     <p style="font-size: 19px; position: static; ">
+    @Html.ActionLink("Вернуться назад", "Admin")
+    </p>
+
+</html>
+  }
+
+<script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+
+   <script>
+       angular.module('CreateUser', [])
+        .controller('CreateUserController', ['$scope', '$http', function ($scope, $http) {
+
+            $scope.AddUser = function () {
+                    var user = {
+                        "Fio": Fio.value,
+                        "Login": Login.value,
+                        "Age": Age.value,
+                        "Phone": Phone.value,
+                        "Foto": Foto.value.replace(/^.*\\/, "")
+                    }
+                    $http.post('http://localhost:53120/api/users', user).
+                    success(function (data, status, headers, config) {
+                        alert('Пользователь добавлен, вернитесь назад');
+                    }).
+                    error(function (data, status, headers, config) {
+                        
+                    });
+            };
+
+           }]);  
+    </script>
