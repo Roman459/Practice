@@ -10,22 +10,21 @@
         Поиск <input type="text" ng-model="search.$" />  
     </p>
 
-  
-
     <div ng-controller="ListUsersController">
 
-          <p>
-        Сортировка по : <select ng-model="sortColumn">
-             <option value="Id">ID</option>
+            <p>
+            Сортировка по : <select ng-model="sortColumn">
+            <option value="Id">ID</option>
             <option value="Fio">ФИО</option>
             <option value="Login">Логин</option>
             <option value="Age">Возраст</option>
             </select>
             </p>
-        <div class =" container">
-        <div class =" panel panel-primary">
-        <table class="table table-bordered table-striped table-hover" >
-             <thead>
+
+       <div class =" container">
+       <div class =" panel panel-primary">
+       <table class="table table-bordered table-striped table-hover" >
+            <thead>
                 <tr>
                     <th>ФИО</th>
                     <th>Логин</th>
@@ -39,9 +38,9 @@
                     <td>{{user.Age}}</td>
                 </tr>
             </tbody>
-</table>
-            </div>
-            </div>
+       </table>
+       </div>
+       </div>
  
     <p style="font-size: 20px; position: static; ">
     @Html.ActionLink("Администрация", "Admin")
@@ -51,22 +50,5 @@
 
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 
-<script>
-    var app = angular.module("ListUsers", []);
-    app.controller("ListUsersController", function ($scope, $http, $sce, $rootScope) {
-
-        $scope.sortColumn = "Id";
-
-        $http.get('http://localhost:53120/api/users').
-          success(function (data, status, headers, config) {
-              $scope.users = data;
-          }).
-          error(function (data, status, headers, config) {
-              alert("erro");
-          });
-
-    });
-   
-</script>
-
+<script type="text/javascript" src="@Url.Content("~/DatabaseUsersScripts/ListUsersScript.js")"></script> 
 

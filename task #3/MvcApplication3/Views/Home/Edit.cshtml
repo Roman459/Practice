@@ -12,7 +12,7 @@
       
     <div ng-controller="EditUserController">
     
-     <table>      
+    <table>      
     <tr><td><label>ID: </label></td><td><input type="text" id="Id" readonly="readonly" ></td></tr>
     <tr><td><label>ФИО: </label></td><td><input type="text" id="Fio" ></td></tr>
     <tr><td><label>Логин: </label></td><td><input type="text" id="Login" > </td></tr>
@@ -20,74 +20,18 @@
     <tr><td><label>Телефон: </label></td><td><input type="text" id="Phone" ></td></tr>
     <tr style= "display:none;"><td><label>Фото: </label></td><td><input type="text" id="Foto" ></td></tr>
     <tr><td><label>Фото: </label></td><td><input type="file" id="FotoFile" name ="file" onchange="angular.element(this).scope().file_changed(this)"></td></tr>         
-     </table>
+    </table>
 
-     <button id="editUser"  ng-click="SaveEditUser()">Сохранить</button> 
+    <button id="editUser"  ng-click="SaveEditUser()">Сохранить</button> 
         
-     </div>
+    </div>
 
 </body>
 }
 <div>
 @Html.ActionLink("Вернуться назад", "Admin")
-    </div>
-
+</div>
 
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 
-
-<script>
-    var app = angular.module("EditUser", []);
-    app.controller("EditUserController", function ($scope, $http, $rootScope, $location) {
-
-        var urlx = $location.absUrl();
-        var idu = urlx.replace('http://localhost:53120/Home/Edit/', '');
-
-        $http.get('http://localhost:53120/api/users/' + idu).
-             success(function (data, status, headers, config) {
-
-                 var res = data;
-
-                 Id.value = res.Id;
-                 Fio.value = res.Fio;
-                 Login.value = res.Login;
-                 Age.value = res.Age;
-                 Phone.value = res.Phone;
-                 Foto.value = res.Foto;
-             }).
-             error(function (data, status, headers, config) {
-                 alert("erro" );
-             });
-
-        $scope.file_changed = function () {
-            Foto.value = FotoFile.value.replace(/^.*\\/, "");
-        }
-
-        $scope.SaveEditUser = function (id) {
-
-            var id = Id.value;
-
-            var user = {
-                "Id": Id.value,
-                "Fio": Fio.value,
-                "Login": Login.value,
-                "Age": Age.value,
-                "Phone": Phone.value,
-                "Foto": Foto.value
-            }
-            $http.put('http://localhost:53120/api/users/'+id, user).
-              success(function (data, status, headers, config) {
-
-                  alert('Данные о пользователе изменены, вернитесь назад');
-
-              }).
-              error(function (data, status, headers, config) {
-
-                 
-
-              });
-        };
-
-    });
-  
-</script>
+<script type="text/javascript" src="@Url.Content("~/DatabaseUsersScripts/EditUserScript.js")"></script> 

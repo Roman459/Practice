@@ -29,7 +29,6 @@ namespace MvcApplication3.Controllers
         [HttpPost]
         public ActionResult Create(HttpPostedFileBase file)
         {
-           
                 if (ModelState.IsValid)
                 {
                     var fileName = Path.GetFileName(file.FileName);

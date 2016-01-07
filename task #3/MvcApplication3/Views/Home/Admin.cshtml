@@ -34,8 +34,8 @@
                    <td><a  ng-click ='GetDitailsUser(user.Id);' >Детали</a></td>
                    <td><a  ng-click ='GetDeleteUser(user.Id);' >Удалить</a></td>
                 </tr>
-               </tbody>
-</table>
+                </tbody>
+        </table>
             </div>
             </div>
    
@@ -51,30 +51,4 @@
 
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 
-<script>
-    var app = angular.module("Users", []);
-    app.controller("UsersController", function ($scope, $http, $sce, $rootScope) {
-
-        $http.get('http://localhost:53120/api/users').
-          success(function (data, status, headers, config) {
-              $scope.users = data;
-          }).
-          error(function (data, status, headers, config) {
-              alert("erro");
-          });
-
-        $scope.GetDeleteUser = function (id) {    
-            window.location.replace("http://localhost:53120/Home/Delete/" + id);
-        };
-
-        $scope.GetEditUser = function (id) {
-            window.location.replace("http://localhost:53120/Home/Edit/" + id);
-        };
-
-        $scope.GetDitailsUser = function (id) {    
-            window.location.replace("http://localhost:53120/Home/Details/" + id);
-        };
-
-    });
-   
-</script>
+<script type="text/javascript" src="@Url.Content("~/DatabaseUsersScripts/UsersScript.js")"></script>

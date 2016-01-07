@@ -191,6 +191,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="DatabaseUsersScripts\ListUsersScript.js" />
+    <Content Include="DatabaseUsersScripts\UsersScript.js" />
+    <Content Include="DatabaseUsersScripts\CreateUserScript.js" />
+    <Content Include="DatabaseUsersScripts\DeleteUserScript.js" />
+    <Content Include="DatabaseUsersScripts\DetailsUserScript.js" />
+    <Content Include="DatabaseUsersScripts\EditUserScript.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />

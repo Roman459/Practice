@@ -7,7 +7,7 @@
       
     <div ng-controller="DetailsUserController">
 
-           <table>
+          <table>
                     <tr>
                         <td>
                             <span>ID</span>
@@ -56,44 +56,16 @@
                             <img ng-src="{{Foto}}"  width="200" height="200">
                         </td>
                     </tr>
+          </table>
 
-                </table>
         </div>
 
 </body>
 
 <div>
 @Html.ActionLink("Вернуться назад", "Admin")
-    </div>
+</div>
 
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
 
-
-<script>
-    var app = angular.module("DetailsUser", []);
-    app.controller("DetailsUserController", function ($scope, $http, $sce, $location) {
-
-        var urlx = $location.absUrl();
-        var idu = urlx.replace('http://localhost:53120/Home/Details/', '');
-
-        $http.get('http://localhost:53120/api/users/' + idu).
-             success(function (data, status, headers, config) {
-
-                 var res = data;
-
-                 $scope.Id = res.Id;
-                 $scope.Fio = res.Fio;
-                 $scope.Login = res.Login;
-                 $scope.Age = res.Age;
-                 $scope.Phone = res.Phone;
-                 $scope.Foto = $sce.trustAsResourceUrl('/ImagesUsers/' + res.Foto);
-
-             }).
-             error(function (data, status, headers, config) {
-                 alert("erro");
-
-             });
-
-    });
-   
-</script>
+<script type="text/javascript" src="@Url.Content("~/DatabaseUsersScripts/DetailsUserScript.js")"></script> 

@@ -14,7 +14,5 @@ namespace MvcApplication3.Models
         public int Age { get; set; }
         public string Phone { get; set; }
         public string Foto { get; set; }
-
-     // public HttpPostedFileBase file { get; set; }
     }
 }
